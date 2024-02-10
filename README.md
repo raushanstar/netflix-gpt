@@ -73,6 +73,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 -create react-app
 -confiure tailwindCSS
 -Login and singup form and browser router
+-form validation
+
 
 #Features
 

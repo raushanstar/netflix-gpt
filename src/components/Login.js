@@ -1,7 +1,18 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
+import { checkValidate } from "../utils/validate";
 const Login = () => {
   const [singin, setSign] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const handleButtonClick = () => {
+    const message = checkValidate(email.current.value, password.current.value);
+    setErrorMessage(message);
+    console.log(message);
+  };
   const toggle = () => {
     setSign(!singin);
   };
@@ -14,13 +25,16 @@ const Login = () => {
           alt="background"
         />
       </div>
-      <form className="w-3/12 p-12 absolute bg-black my-40 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="w-4/12 p-12 absolute bg-black my-32 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+      >
         <h1 className="font-bold text-3xl py-4">
           {singin ? "Sign In" : "Sign Up"}
         </h1>
         <input
-          type="text"
-          placeholder="Enter email"
+          ref={email}
+          placeholder="Enter Email"
           className="p-3 my-3 w-full bg-gray-700 rounded-lg"
           required
         />
@@ -33,16 +47,22 @@ const Login = () => {
           />
         )}
         <input
+          ref={password}
           type="password"
           placeholder="Enter password"
           className="p-3 my-3 w-full bg-gray-700 rounded-lg"
           required
         />
-        <button className="p-3 my-5 w-full bg-red-600 rounded-lg" type="submit">
+        {<p className="text-red-700 font-bold">{errorMessage}</p>}
+        <button
+          className="p-3 my-5 w-full bg-red-600 rounded-lg "
+          type="submit"
+          onClick={() => handleButtonClick()}
+        >
           {singin ? "Sign in" : "Sign Up"}
         </button>
 
-        <p className="py-2 cursor-pointer" onClick={() => toggle()}>
+        <p className="pt-2 cursor-pointer" onClick={() => toggle()}>
           {singin
             ? "New to Netflix? Sign Up Now"
             : "Already member? Sign In Now"}
