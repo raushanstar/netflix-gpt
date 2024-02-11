@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidate } from "../utils/validate";
+import { createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from "../utils/firebase";
 const Login = () => {
   const [singin, setSign] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -11,7 +13,48 @@ const Login = () => {
   const handleButtonClick = () => {
     const message = checkValidate(email.current.value, password.current.value);
     setErrorMessage(message);
-    console.log(message);
+
+    if (message) return;
+
+    if (!singin) {
+      //sign up
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage);
+          // ..
+        });
+    } else {
+      //sign in
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage);
+
+        });
+    }
   };
   const toggle = () => {
     setSign(!singin);
@@ -62,11 +105,23 @@ const Login = () => {
           {singin ? "Sign in" : "Sign Up"}
         </button>
 
-        <p className="pt-2 cursor-pointer" onClick={() => toggle()}>
-          {singin
-            ? "New to Netflix? Sign Up Now"
-            : "Already member? Sign In Now"}
-        </p>
+        {singin ? (
+          <p className="pt-2 ">
+            New to Netflix?
+            <span className="cursor-pointer font-bold" onClick={() => toggle()}>
+              {" "}
+              Sign Up Now
+            </span>
+          </p>
+        ) : (
+          <p className="pt-2 ">
+            Already member?
+            <span className="cursor-pointer font-bold" onClick={() => toggle()}>
+              {" "}
+              Sign In Now
+            </span>
+          </p>
+        )}
       </form>
     </div>
   );

@@ -70,11 +70,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 #Neflix Gpt
--create react-app
--confiure tailwindCSS
--Login and singup form and browser router
--form validation
-
+- create react-app
+- confiure tailwindCSS
+- Login and singup form and browser router
+- form validation
+- setup Firebase and deploy on firebase
 
 #Features
 
