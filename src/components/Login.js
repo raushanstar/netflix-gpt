@@ -39,9 +39,10 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+          const namedis = name.current.value.split(" ");
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://ui-avatars.com/api/?name=John+Doe",
+            photoURL: `https://ui-avatars.com/api/?name=${namedis[0]}+${namedis[namedis.length-1]}`,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;

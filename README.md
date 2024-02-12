@@ -19,6 +19,7 @@ This section has moved here: https://netflixgpt-2de34.firebaseapp.com/
 - form validation
 - setup Firebase and deploy on firebase
 - set react-redux
+- bug fixed and made private route
 
 # Features
 
