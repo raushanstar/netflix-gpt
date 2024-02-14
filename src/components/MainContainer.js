@@ -11,7 +11,6 @@ const MainContainer = () => {
   const random_index = random(0, movies.length - 1);
 
   const { original_title, overview, id } = movies[random_index];
-  console.log(random_index);
   return (
     <div>
       <VideoTitle title={original_title} overview={overview} id={id} />

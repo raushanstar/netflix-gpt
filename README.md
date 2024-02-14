@@ -20,14 +20,17 @@ This section has moved here: https://netflixgpt-2de34.firebaseapp.com/
 - setup Firebase and deploy on firebase
 - set react-redux
 - bug fixed and made private route
- {/* 
-      MainContainer
-        -videoBackground
-        - mainContainer Title
-      -secondaryContainer 
-        -card
-        -moviesList
-      */}
+  {/_
+  MainContainer
+  -videoBackground - mainContainer Title
+  -secondaryContainer
+  -card
+  -moviesList
+  _/}
+
+- fetch video data from tmdb
+- created movie slice
+- added all video list of netflix (trending videos , popular videos...) using tmdb api
 
 # Features
 
