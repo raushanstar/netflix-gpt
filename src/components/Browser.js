@@ -1,11 +1,15 @@
-import React from "react";
+import useNowPlaying from "../hooks/useNowPlaying";
 import Header from "./Header";
+import MainContainer from "./MainContainer";
 
 const Browser = () => {
-  return <div>
-
-    <Header/>
-  </div>;
+  useNowPlaying();
+  return (
+    <div>
+      <Header />
+      <MainContainer/>
+    </div>
+  );
 };
 
 export default Browser;
