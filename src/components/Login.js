@@ -40,10 +40,10 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          const namedis = name.current.value.split(" ");
+          // const namedis = name.current.value.split(" ");
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: `https://ui-avatars.com/api/?name=${namedis[0]}+${namedis[namedis.length-1]}`,
+            photoURL: "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp",
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
