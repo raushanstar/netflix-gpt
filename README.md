@@ -1,11 +1,11 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Development is progress
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open http://localhost:3000 to view it in your browser.
 
 ### Deployment
 
@@ -31,6 +31,7 @@ This section has moved here: https://netflixgpt-2de34.firebaseapp.com/
 - fetch video data from tmdb
 - created movie slice
 - added all video list of netflix (trending videos , popular videos...) using tmdb api
+- added movie details route
 
 # Features
 

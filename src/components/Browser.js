@@ -5,8 +5,13 @@ import SecondaryContainer from "./SecondaryContainer";
 import useTrendingMovie from "../hooks/useTrendingMovie";
 import { useSelector } from "react-redux";
 import GptSearchPage from "./GptSearchPage";
+import MovieDetails from "./MovieDetails";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
 const Browser = () => {
+  const movieHandleBtn = useSelector((store) => store.movieDT.clickBtn);
   const clickBtn = useSelector((store) => store.gptBtn.clickBtn);
+
   useNowPlaying();
   useTrendingMovie();
 
