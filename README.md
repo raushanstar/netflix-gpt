@@ -1,17 +1,17 @@
-# Getting Started with Create React App
+# Netflix clone React App
 
-- Development is progress
+### Development is progress
 
-### `npm start`
+- App link: https://neflixgpt2.web.app/
+- https://neflixgpt2.firebaseapp.com/
 
-Runs the app in the development mode.\
-Open http://localhost:3000 to view it in your browser.
+Open https://neflixgpt2.web.app/ to view it in your browser
 
 ### Deployment
 
-This section has moved here: https://netflixgpt-2de34.firebaseapp.com/
+This section has moved here: https://neflixgpt2.firebaseapp.com/
 
-## Neflix Gpt
+## Neflix Gpt progress bar
 
 - create react-app
 - confiure tailwindCSS
