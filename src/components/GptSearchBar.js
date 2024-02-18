@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useRef } from "react";
+import { run } from "../utils/googleai";
+import { useDispatch } from "react-redux";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { movieSuggestionList } from "../utils/aiMovieSlice";
+import { google_api } from "../utils/constant";
+import GptMovieSuggestion from "./GptMovieSuggestion";
 
 const GptSearch = () => {
-  const handleGpt = async () => {
-    //   const chatCompletion = await openai.chat.completions.create({
-    //     messages: [{ role: "user", content: "Say this is a test" }],
-    //     model: "gpt-3.5-turbo",
-    //   });
+  const dispatch = useDispatch();
 
-    //   console.log(chatCompletion);
+  const searchText = useRef(null);
+  const key = google_api;
+  const genAI = new GoogleGenerativeAI(
+    "AIzaSyAGhHNs23ftbunEDlkHPaRammqFIdtEppM"
+  );
+
+  const run = async (promptIn) => {
+    // For text-only input, use the gemini-pro model
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+    const prompt = `Please provide five ${promptIn} separated by commas. only give me response in this format for example: 'Ghayal, Dilwale, Don, Pathan, Hero number one'`;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+    console.log(text);
+    dispatch(movieSuggestionList(text));
+  };
+
+  const handleGpt = async () => {
+    run(searchText.current.value);
   };
 
   return (
@@ -15,6 +36,7 @@ const GptSearch = () => {
       <form onSubmit={(e) => e.preventDefault()}>
         <input
           className="w-80 h-10 mr-2 p-2 rounded-lg text-lg"
+          ref={searchText}
           type="text"
           placeholder="what do you want to watch !"
         ></input>
@@ -25,6 +47,7 @@ const GptSearch = () => {
           Search
         </button>
       </form>
+      <GptMovieSuggestion />
     </div>
   );
 };

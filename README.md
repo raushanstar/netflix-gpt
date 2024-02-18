@@ -32,6 +32,7 @@ This section has moved here: https://netflixgpt-2de34.firebaseapp.com/
 - created movie slice
 - added all video list of netflix (trending videos , popular videos...) using tmdb api
 - added movie details route
+- google gemini AI api integration for movie suggestion
 
 # Features
 
