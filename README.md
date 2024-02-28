@@ -2,14 +2,19 @@
 
 ### Development is progress
 
-- App link: https://neflixgpt2.web.app/
-- https://neflixgpt2.firebaseapp.com/
+- App link: https://netflix-gpt-nextgen.vercel.app/
 
-Open https://neflixgpt2.web.app/ to view it in your browser
+  Demo Credentials for log in application
+  email: test@netflix.com
+  password: Test@123
+
+for logIn to application
+user email : test01@netflix.com
+user password : Test@123
 
 ### Deployment
 
-This section has moved here: https://neflixgpt2.firebaseapp.com/
+This section has moved here: https://netflix-gpt-nextgen.vercel.app/
 
 ## Neflix Gpt progress bar
 

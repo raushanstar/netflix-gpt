@@ -1,19 +1,16 @@
 import React, { useRef } from "react";
-import { run } from "../utils/googleai";
 import { useDispatch } from "react-redux";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { movieSuggestionList } from "../utils/aiMovieSlice";
-import { google_api } from "../utils/constant";
 import GptMovieSuggestion from "./GptMovieSuggestion";
 
 const GptSearch = () => {
   const dispatch = useDispatch();
 
   const searchText = useRef(null);
-  const key = google_api;
-  const genAI = new GoogleGenerativeAI(
-    "AIzaSyAGhHNs23ftbunEDlkHPaRammqFIdtEppM"
-  );
+  const google_key = process.env.REACT_APP_BARD_API;
+
+  const genAI = new GoogleGenerativeAI(google_key);
 
   const run = async (promptIn) => {
     // For text-only input, use the gemini-pro model
@@ -23,7 +20,6 @@ const GptSearch = () => {
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = response.text();
-    console.log(text);
     dispatch(movieSuggestionList(text));
   };
 
